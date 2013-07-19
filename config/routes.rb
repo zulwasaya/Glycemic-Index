@@ -5,8 +5,8 @@ GlycemicIndex::Application.routes.draw do
   resources :categories
 
   root :to => 'categories#listallfoods'
-  match '/listallfoods', :to => 'todos#listallfoods'
-  get '/about', :to => 'catagories#about'
+  match '/listallfoods', :to => 'categories#listallfoods'
+  get '/about', :to => 'categories#about'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
