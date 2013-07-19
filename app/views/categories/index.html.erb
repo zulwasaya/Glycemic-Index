@@ -1,0 +1,31 @@
+
+
+<div data-role="header">
+
+
+<p> Food Categories </p>
+
+  <!-- end .header --></div>
+
+
+
+<div data-role="content" data-theme="b" data-transition= "flip" >
+
+  <ul data-role="listview" data-filter="true" data-inset="true" data-theme="e">
+
+
+<% @catagories.each do |cat| %>
+
+
+    <li>
+      <%=  link_to  cat.name ,cat %>
+      <span class="ui-li-count"> <%=cat.foods.size%> </span>
+    </li>
+
+
+
+<% end %>
+ </ul>
+
+
+  <!-- end .content --></div>

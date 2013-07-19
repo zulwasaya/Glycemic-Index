@@ -1,0 +1,57 @@
+
+
+<p>
+  <b>Name:</b>
+  <%= @category.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+
+
+
+
+<div data-role="header">
+
+
+  <%= link_to 'Back', categories_path, {"data-icon" =>"back", "data-ajax" =>"false", "class" => "ui-btn-left", "data-theme"=>"b"} %>
+
+  <h1> Category:<%= @category.name%> </h1>
+
+
+
+  <div data-role="navbar"  data-iconpos="top" >
+
+    <ul>
+
+      <li> <%= link_to 'Add Food', new_food_path, "data-icon"=>"plus", "data-theme"=>"b" %></li>
+      <li><%= link_to 'Edit Category',  edit_category_path(@category), {"data-icon" =>"star", "data-theme"=>"b"} %></li>
+      <li><%= link_to 'Delete Category ', category_path(@category), method: :delete, data: { confirm: 'Are you sure?' },"data-icon"=>"minus" , "data-theme"=>"b" %> </li>
+
+
+
+    </ul>
+
+    <p id="notice"><%= notice %></p>
+  </div>
+
+  <!-- end .header --></div>
+
+<div data-role="content" data-theme="e" data-transition= "flip">
+  <ul data-role="listview" data-filter="true" data-inset="true">
+
+
+
+
+
+
+    <% @category.foods.order(:gi).each do |fd| %>
+        <li>
+          <%= link_to fd.name, list %>
+        </li>
+    <% end %>
+
+
+  </ul>
+  <!-- end .content --></div>

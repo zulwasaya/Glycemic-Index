@@ -1,0 +1,21 @@
+
+<div data-role="header">
+
+
+
+  <h1> Edit Food</h1>
+
+  <%= link_to 'Back', @food.category, {"data-icon" =>"back", "class" => "ui-btn-left", "data-theme"=>"b"} %>
+  <%= link_to 'Show', @food, {"data-icon" =>"star", "class" => "ui-btn-right", "data-theme"=>"b"} %>
+  <!-- end .header --></div>
+
+<div data-role="content" data-theme="a" data-transition= "flip">
+  <ul data-role="listview" data-inset="true" >
+
+
+
+
+    <%= render 'form' %>
+
+  </ul>
+  <!-- end .content --></div>

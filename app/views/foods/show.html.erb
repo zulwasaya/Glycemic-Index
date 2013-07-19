@@ -1,0 +1,44 @@
+
+<div data-role="header">
+
+
+
+  <h1> Food: <%= @food.name %></h1>
+  <p> Category:<%= @food.category.name%>    Glycemic Index: <%=@food.category.gi %></p>
+
+  <%= link_to 'Back', @food.category, {"data-icon" =>"back", "class" => "ui-btn-left", "data-theme"=>"b"} %>
+  <%= link_to 'Edit',  edit_food_path(@food), {"data-icon" =>"star", "class" => "ui-btn-right", "data-theme"=>"b"} %>
+  <div data-role="navbar"  data-iconpos="top" >
+
+    <ul>
+      <li><%= link_to 'List Foods', @food.category, {"data-icon" =>"refresh", "data-theme"=>"b"} %></li>
+      <li> <%= link_to 'Add Food', new_food_path, "data-icon"=>"plus", "data-theme"=>"b" %></li>
+      <li><%= link_to 'Edit Food',  edit_food_path(@food), {"data-icon" =>"star", "data-theme"=>"b"} %></li>
+      <li><%= link_to 'Delete Food', @food, method: :delete, data: { confirm: 'Are you sure?' },"data-icon"=>"minus", "data-theme"=>"b" %></li>
+
+    </ul>
+
+    <p id="notice"><%= notice %></p>
+
+  </div>
+
+
+  <!-- end .header --></div>
+
+<div data-role="content" data-theme="e" data-transition= "flip">
+  <ul  data-inset="true" data-theme="a">
+
+    <p>
+      <b>Food:</b>
+      <%= @food.name %>
+    </p>
+
+    <p>
+      <b>Glycemic Index:</b>
+      <%= @food.gi %>
+    </p>
+
+
+
+  </ul>
+  <!-- end .content --></div>

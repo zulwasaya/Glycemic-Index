@@ -1,0 +1,33 @@
+
+<div data-role="header">
+
+  <p> List Foods  </p>
+
+
+  <%= link_to 'Back', categories_path, {"data-icon" =>"back", "data-ajax" =>"false", "class" => "ui-btn-right"} %>
+
+
+  <!-- end .header --></div>
+
+
+
+<div data-role="content" data-theme="b" data-transition= "flip" >
+
+  <ul data-role="listview" data-filter="true" data-inset="true" data-theme="e">
+
+
+      <% @foods.each do |fd| %>
+
+        <li><%= link_to fd.name, fd %></li>
+
+
+      <% end %>
+
+
+
+
+  </ul>
+
+
+  <!-- end .content --></div>
+

@@ -1,0 +1,35 @@
+
+
+<div data-role="header">
+
+
+<p> List all Categories and Foods</p>
+
+
+  <!-- end .header --></div>
+
+
+
+<div data-role="content" data-theme="b" data-transition= "flip" >
+
+  <ul data-role="listview" data-filter="true" data-inset="true" data-theme="e">
+
+
+<% @categories.each do |cat| %>
+
+
+    <li>Category:<%= link_to  cat.name ,cat %></li>
+
+
+        <% cat.foods.order(:gi).each do |fd| %>
+            <li>
+              <%= link_to fd.name, fd %>
+            </li>
+
+        <% end %>
+
+<% end %>
+ </ul>
+
+
+  <!-- end .content --></div>
