@@ -2222,3 +2222,22 @@ Served asset /application.js - 304 Not Modified (2ms)
 
 Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:09:08 +0100
 Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreateCategories (20130719140219)
+Migrating to CreateFoods (20130719140342)
+Migrating to ChangeGiToInteger (20130719171520)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TEMPORARY TABLE "altered_foods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "gi" varchar(255), "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "foods"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "altered_foods" ("id","name","gi","category_id","created_at","updated_at") VALUES (3, 'food test', '4', 2, '2013-07-19 17:05:37.383582', '2013-07-19 17:05:37.383582')
+  [1m[36m (1.0ms)[0m  [1mDROP TABLE "foods"[0m
+  [1m[35m (0.0ms)[0m  CREATE TABLE "foods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "gi" integer(255), "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mSELECT * FROM "altered_foods"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "foods" ("id","name","gi","category_id","created_at","updated_at") VALUES (3, 'food test', '4', 2, '2013-07-19 17:05:37.383582', '2013-07-19 17:05:37.383582')
+  [1m[36m (0.0ms)[0m  [1mDROP TABLE "altered_foods"[0m
+  [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20130719171520')
+  [1m[36m (73.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
