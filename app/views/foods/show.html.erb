@@ -4,7 +4,7 @@
 
 
   <h1> Food: <%= @food.name %></h1>
-  <p> Category:<%= @food.category.name%>    Glycemic Index: <%=@food.category.gi %></p>
+
 
   <%= link_to 'Back', @food.category, {"data-icon" =>"back", "class" => "ui-btn-left", "data-theme"=>"b"} %>
   <%= link_to 'Edit',  edit_food_path(@food), {"data-icon" =>"star", "class" => "ui-btn-right", "data-theme"=>"b"} %>

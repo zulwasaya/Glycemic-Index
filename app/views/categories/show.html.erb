@@ -1,17 +1,5 @@
 
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
-
-
-
-
 <div data-role="header">
 
 
@@ -48,7 +36,7 @@
 
     <% @category.foods.order(:gi).each do |fd| %>
         <li>
-          <%= link_to fd.name, list %>
+          <%= link_to fd.name, fd %>
         </li>
     <% end %>
 

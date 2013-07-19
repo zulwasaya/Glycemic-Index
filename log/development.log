@@ -859,3 +859,1366 @@ Completed 200 OK in 19ms (Views: 19.0ms | ActiveRecord: 0.0ms)
 
 Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 17:07:29 +0100
 Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+Connecting to database specified by database.yml
+  [1m[36m (9.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (87.0ms)[0m  DROP TABLE "categories"
+  [1m[36m (60.0ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (62.0ms)[0m  DROP TABLE "foods"
+  [1m[36m (65.0ms)[0m  [1mCREATE TABLE "foods" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "gi" varchar(255), "category_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-07-19 17:59:52 +0100
+Processing by CategoriesController#listallfoods as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  Rendered categories/listallfoods.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 332ms (Views: 208.0ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 17:59:53 +0100
+Served asset /application.css - 304 Not Modified (29ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 17:59:53 +0100
+Served asset /categories.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 17:59:53 +0100
+Served asset /foods.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 17:59:53 +0100
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 17:59:53 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 17:59:53 +0100
+Served asset /jquery.js - 304 Not Modified (45ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 17:59:53 +0100
+Served asset /categories.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 17:59:53 +0100
+Served asset /foods.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 17:59:53 +0100
+Served asset /application.js - 304 Not Modified (13ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 17:59:54 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (14ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2013-07-19 17:59:58 +0100
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (176.0ms)
+  Rendered categories/new.html.erb within layouts/application (259.0ms)
+Completed 200 OK in 290ms (Views: 284.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 17:59:58 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at 2013-07-19 18:00:04 +0100
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ie7pE8yyaS5efqRiVppsLQHWv+goe9gYNsD6QGt6J9M=", "category"=>{"name"=>"test"}, "commit"=>"Create Category"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (16.0ms)[0m  [1mINSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)[0m  [["created_at", Fri, 19 Jul 2013 17:00:04 UTC +00:00], ["name", "test"], ["updated_at", Fri, 19 Jul 2013 17:00:04 UTC +00:00]]
+  [1m[35m (73.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/categories/1
+Completed 302 Found in 93ms (ActiveRecord: 89.0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2013-07-19 18:00:04 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mFood Load (1.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 1 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (138.0ms)
+Completed 200 OK in 159ms (Views: 156.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:00:05 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "foods" WHERE "foods"."category_id" = 1
+  Rendered categories/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /categories.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /foods.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /categories.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:00:59 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2013-07-19 18:01:02 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mFood Load (1.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 1 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:01:02 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2013-07-19 18:01:05 +0100
+Processing by FoodsController#new as HTML
+  Rendered foods/_form.html.erb (6.0ms)
+  Rendered foods/new.html.erb within layouts/application (22.0ms)
+Completed 200 OK in 54ms (Views: 44.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:01:05 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Processing by FoodsController#new as HTML
+  Rendered foods/_form.html.erb (4.0ms)
+  Rendered foods/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 40ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:02:45 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started POST "/foods" for 127.0.0.1 at 2013-07-19 18:03:05 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ie7pE8yyaS5efqRiVppsLQHWv+goe9gYNsD6QGt6J9M=", "food"=>{"name"=>"new food", "gi"=>"100"}, "commit"=>"Create Food"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "foods" ("category_id", "created_at", "gi", "name", "updated_at") VALUES (?, ?, ?, ?, ?)  [["category_id", 1], ["created_at", Fri, 19 Jul 2013 17:03:05 UTC +00:00], ["gi", "100"], ["name", "new food"], ["updated_at", Fri, 19 Jul 2013 17:03:05 UTC +00:00]]
+  [1m[36m (76.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/foods/1
+Completed 302 Found in 82ms (ActiveRecord: 77.0ms)
+
+
+Started GET "/foods/1" for 127.0.0.1 at 2013-07-19 18:03:05 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = 1 LIMIT 1[0m
+  Rendered foods/show.html.erb within layouts/application (14.0ms)
+Completed 500 Internal Server Error in 19ms
+
+ActionView::Template::Error (undefined method `gi' for #<Category:0x3d7d360>):
+    4: 
+    5: 
+    6:   <h1> Food: <%= @food.name %></h1>
+    7:   <p> Category:<%= @food.category.name%>    Glycemic Index: <%=@food.category.gi %></p>
+    8: 
+    9:   <%= link_to 'Back', @food.category, {"data-icon" =>"back", "class" => "ui-btn-left", "data-theme"=>"b"} %>
+    10:   <%= link_to 'Edit',  edit_food_path(@food), {"data-icon" =>"star", "class" => "ui-btn-right", "data-theme"=>"b"} %>
+  app/views/foods/show.html.erb:7:in `_app_views_foods_show_html_erb__333359743_21907836'
+  app/controllers/foods_controller.rb:18:in `show'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.0ms)
+
+
+Started POST "/foods" for 127.0.0.1 at 2013-07-19 18:04:18 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ie7pE8yyaS5efqRiVppsLQHWv+goe9gYNsD6QGt6J9M=", "food"=>{"name"=>"new food", "gi"=>"100"}, "commit"=>"Create Food"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "foods" ("category_id", "created_at", "gi", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["category_id", 1], ["created_at", Fri, 19 Jul 2013 17:04:18 UTC +00:00], ["gi", "100"], ["name", "new food"], ["updated_at", Fri, 19 Jul 2013 17:04:18 UTC +00:00]]
+  [1m[35m (65.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/foods/2
+Completed 302 Found in 69ms (ActiveRecord: 65.0ms)
+
+
+Started GET "/foods/2" for 127.0.0.1 at 2013-07-19 18:04:18 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = 1 LIMIT 1
+  Rendered foods/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 42ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:04:18 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2013-07-19 18:04:25 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 1 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined local variable or method `list' for #<#<Class:0x4777380>:0x55182d8>):
+    36: 
+    37:     <% @category.foods.order(:gi).each do |fd| %>
+    38:         <li>
+    39:           <%= link_to fd.name, list %>
+    40:         </li>
+    41:     <% end %>
+    42: 
+  app/views/categories/show.html.erb:39:in `block in _app_views_categories_show_html_erb__311563558_33322740'
+  app/views/categories/show.html.erb:37:in `_app_views_categories_show_html_erb__311563558_33322740'
+  app/controllers/categories_controller.rb:31:in `show'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (27.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "foods" WHERE "foods"."category_id" = 1
+  Rendered categories/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:39 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:04:40 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2013-07-19 18:04:42 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 1 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined local variable or method `list' for #<#<Class:0x4777380>:0x2a54c18>):
+    36: 
+    37:     <% @category.foods.order(:gi).each do |fd| %>
+    38:         <li>
+    39:           <%= link_to fd.name, list %>
+    40:         </li>
+    41:     <% end %>
+    42: 
+  app/views/categories/show.html.erb:39:in `block in _app_views_categories_show_html_erb__311563558_33322740'
+  app/views/categories/show.html.erb:37:in `_app_views_categories_show_html_erb__311563558_33322740'
+  app/controllers/categories_controller.rb:31:in `show'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (27.0ms)
+
+
+Started GET "/listallfoods" for 127.0.0.1 at 2013-07-19 18:04:46 +0100
+Processing by CategoriesController#listallfoods as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 1 ORDER BY gi
+  Rendered categories/listallfoods.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:46 +0100
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:46 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:46 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:46 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:46 +0100
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:46 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:46 +0100
+Served asset /categories.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:47 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:47 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:04:47 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/foods/2" for 127.0.0.1 at 2013-07-19 18:04:52 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = 1 LIMIT 1
+  Rendered foods/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 21ms (Views: 19.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:04:52 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started DELETE "/foods/2" for 127.0.0.1 at 2013-07-19 18:04:55 +0100
+Processing by FoodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ie7pE8yyaS5efqRiVppsLQHWv+goe9gYNsD6QGt6J9M=", "id"=>"2"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "foods" WHERE "foods"."id" = ?[0m  [["id", 2]]
+  [1m[35m (70.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/foods
+Completed 302 Found in 75ms (ActiveRecord: 70.0ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2013-07-19 18:04:55 +0100
+Processing by FoodsController#index as HTML
+  [1m[36mFood Load (1.0ms)[0m  [1mSELECT "foods".* FROM "foods" [0m
+  Rendered foods/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:55 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:55 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:56 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:04:56 +0100
+Served asset /scaffolds.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:56 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:56 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:56 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:56 +0100
+Served asset /foods.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:04:56 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:04:56 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/foods/1" for 127.0.0.1 at 2013-07-19 18:04:57 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = 1 LIMIT 1[0m
+  Rendered foods/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 43ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:04:57 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started DELETE "/foods/1" for 127.0.0.1 at 2013-07-19 18:05:00 +0100
+Processing by FoodsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ie7pE8yyaS5efqRiVppsLQHWv+goe9gYNsD6QGt6J9M=", "id"=>"1"}
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "foods" WHERE "foods"."id" = ?  [["id", 1]]
+  [1m[36m (74.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/foods
+Completed 302 Found in 78ms (ActiveRecord: 75.0ms)
+
+
+Started GET "/foods" for 127.0.0.1 at 2013-07-19 18:05:00 +0100
+Processing by FoodsController#index as HTML
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" 
+  Rendered foods/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:00 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:00 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:00 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:00 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:00 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:00 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:00 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:01 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:01 +0100
+Served asset /application.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:05:01 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2013-07-19 18:05:03 +0100
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "foods" WHERE "foods"."category_id" = 1
+  Rendered categories/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:03 +0100
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:04 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:04 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:04 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:04 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:04 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:04 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:04 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:04 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:05:04 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/1" for 127.0.0.1 at 2013-07-19 18:05:06 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35mFood Load (1.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 1 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 41ms (Views: 23.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:05:06 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started DELETE "/categories/1" for 127.0.0.1 at 2013-07-19 18:05:09 +0100
+Processing by CategoriesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ie7pE8yyaS5efqRiVppsLQHWv+goe9gYNsD6QGt6J9M=", "id"=>"1"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "categories" WHERE "categories"."id" = ?[0m  [["id", 1]]
+  [1m[35m (74.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/categories
+Completed 302 Found in 78ms (ActiveRecord: 74.0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2013-07-19 18:05:09 +0100
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  Rendered categories/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:09 +0100
+Served asset /application.css - 304 Not Modified (30ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:09 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:09 +0100
+Served asset /foods.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:09 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:09 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:09 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:10 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:10 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:10 +0100
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:05:10 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/listallfoods" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Processing by CategoriesController#listallfoods as HTML
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" 
+  Rendered categories/listallfoods.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Served asset /categories.css - 304 Not Modified (18ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Served asset /categories.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Served asset /foods.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:05:11 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:05:12 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2013-07-19 18:05:19 +0100
+Processing by CategoriesController#new as HTML
+  Rendered categories/_form.html.erb (3.0ms)
+  Rendered categories/new.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:05:19 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started POST "/categories" for 127.0.0.1 at 2013-07-19 18:05:25 +0100
+Processing by CategoriesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ie7pE8yyaS5efqRiVppsLQHWv+goe9gYNsD6QGt6J9M=", "category"=>{"name"=>"test"}, "commit"=>"Create Category"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "categories" ("created_at", "name", "updated_at") VALUES (?, ?, ?)  [["created_at", Fri, 19 Jul 2013 17:05:25 UTC +00:00], ["name", "test"], ["updated_at", Fri, 19 Jul 2013 17:05:25 UTC +00:00]]
+  [1m[36m (69.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/categories/2
+Completed 302 Found in 75ms (ActiveRecord: 70.0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:05:25 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi[0m
+  Rendered categories/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 25ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:05:25 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (1ms)
+
+
+Started GET "/foods/new" for 127.0.0.1 at 2013-07-19 18:05:27 +0100
+Processing by FoodsController#new as HTML
+  Rendered foods/_form.html.erb (4.0ms)
+  Rendered foods/new.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 24ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:05:28 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started POST "/foods" for 127.0.0.1 at 2013-07-19 18:05:37 +0100
+Processing by FoodsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ie7pE8yyaS5efqRiVppsLQHWv+goe9gYNsD6QGt6J9M=", "food"=>{"name"=>"food test", "gi"=>"4"}, "commit"=>"Create Food"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "foods" ("category_id", "created_at", "gi", "name", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["category_id", 2], ["created_at", Fri, 19 Jul 2013 17:05:37 UTC +00:00], ["gi", "4"], ["name", "food test"], ["updated_at", Fri, 19 Jul 2013 17:05:37 UTC +00:00]]
+  [1m[35m (71.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/foods/3
+Completed 302 Found in 74ms (ActiveRecord: 72.0ms)
+
+
+Started GET "/foods/3" for 127.0.0.1 at 2013-07-19 18:05:37 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = 2 LIMIT 1
+  Rendered foods/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:05:37 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:05:45 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 16ms
+
+ActionView::Template::Error (undefined local variable or method `list' for #<#<Class:0x4777380>:0x56bfe78>):
+    36: 
+    37:     <% @category.foods.order(:gi).each do |fd| %>
+    38:         <li>
+    39:           <%= link_to fd.name, list %>
+    40:         </li>
+    41:     <% end %>
+    42: 
+  app/views/categories/show.html.erb:39:in `block in _app_views_categories_show_html_erb__311563558_33322740'
+  app/views/categories/show.html.erb:37:in `_app_views_categories_show_html_erb__311563558_33322740'
+  app/controllers/categories_controller.rb:31:in `show'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (27.0ms)
+
+
+Started GET "/foods/3/edit" for 127.0.0.1 at 2013-07-19 18:06:00 +0100
+Processing by FoodsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = 2 LIMIT 1
+  Rendered foods/_form.html.erb (2.0ms)
+  Rendered foods/edit.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 50ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:06:01 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (1ms)
+
+
+Started GET "/foods/3" for 127.0.0.1 at 2013-07-19 18:06:06 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = 2 LIMIT 1
+  Rendered foods/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:06:06 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (1ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2013-07-19 18:06:15 +0100
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "foods" WHERE "foods"."category_id" = 2
+  Rendered categories/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:06:15 +0100
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:06:15 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:15 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:16 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:06:16 +0100
+Served asset /foods.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:06:16 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:16 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:16 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:16 +0100
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:06:16 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/listallfoods" for 127.0.0.1 at 2013-07-19 18:06:18 +0100
+Processing by CategoriesController#listallfoods as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35mFood Load (1.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/listallfoods.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 37ms (Views: 34.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:06:18 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:06:19 +0100
+Served asset /categories.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:06:19 +0100
+Served asset /scaffolds.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:19 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:19 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:06:19 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:19 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:19 +0100
+Served asset /foods.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:06:19 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:06:19 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/foods/3" for 127.0.0.1 at 2013-07-19 18:06:25 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = 2 LIMIT 1
+  Rendered foods/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:06:25 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:06:27 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (undefined local variable or method `list' for #<#<Class:0x4777380>:0x3e1d5f0>):
+    36: 
+    37:     <% @category.foods.order(:gi).each do |fd| %>
+    38:         <li>
+    39:           <%= link_to fd.name, list %>
+    40:         </li>
+    41:     <% end %>
+    42: 
+  app/views/categories/show.html.erb:39:in `block in _app_views_categories_show_html_erb__311563558_33322740'
+  app/views/categories/show.html.erb:37:in `_app_views_categories_show_html_erb__311563558_33322740'
+  app/controllers/categories_controller.rb:31:in `show'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (27.0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:07:03 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined local variable or method `list' for #<#<Class:0x4777380>:0x39c2b98>):
+    36: 
+    37:     <% @category.foods.order(:gi).each do |fd| %>
+    38:         <li>
+    39:           <%= link_to fd.name, list %>
+    40:         </li>
+    41:     <% end %>
+    42: 
+  app/views/categories/show.html.erb:39:in `block in _app_views_categories_show_html_erb__311563558_33322740'
+  app/views/categories/show.html.erb:37:in `_app_views_categories_show_html_erb__311563558_33322740'
+  app/controllers/categories_controller.rb:31:in `show'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (24.0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:07:13 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mFood Load (1.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (undefined local variable or method `list' for #<#<Class:0x4777380>:0x3983160>):
+    36: 
+    37:     <% @category.foods.order(:gi).each do |fd| %>
+    38:         <li>
+    39:           <%= link_to fd.name, list %>
+    40:         </li>
+    41:     <% end %>
+    42: 
+  app/views/categories/show.html.erb:39:in `block in _app_views_categories_show_html_erb__311563558_33322740'
+  app/views/categories/show.html.erb:37:in `_app_views_categories_show_html_erb__311563558_33322740'
+  app/controllers/categories_controller.rb:31:in `show'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.13/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (26.0ms)
+
+
+Started GET "/foods/3" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = 2 LIMIT 1
+  Rendered foods/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 38ms (Views: 36.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Served asset /foods.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:39 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:08:40 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:08:41 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:08:41 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2013-07-19 18:08:43 +0100
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "foods" WHERE "foods"."category_id" = 2
+  Rendered categories/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /categories.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /categories.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:08:44 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:08:47 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:08:47 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/foods/3" for 127.0.0.1 at 2013-07-19 18:08:49 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCategory Load (1.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = 2 LIMIT 1
+  Rendered foods/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 22ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:08:50 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:08:51 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 37ms (Views: 36.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:08:51 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2013-07-19 18:08:53 +0100
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "foods" WHERE "foods"."category_id" = 2
+  Rendered categories/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 20ms (Views: 18.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:53 +0100
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:53 +0100
+Served asset /scaffolds.css - 304 Not Modified (17ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:53 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:53 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:08:53 +0100
+Served asset /foods.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:54 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:54 +0100
+Served asset /categories.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:54 +0100
+Served asset /foods.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:08:54 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:08:54 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:08:55 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (1.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:08:56 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/foods/3" for 127.0.0.1 at 2013-07-19 18:08:57 +0100
+Processing by FoodsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mFood Load (0.0ms)[0m  [1mSELECT "foods".* FROM "foods" WHERE "foods"."id" = ? LIMIT 1[0m  [["id", "3"]]
+  [1m[35mCategory Load (0.0ms)[0m  SELECT "categories".* FROM "categories" WHERE "categories"."id" = 2 LIMIT 1
+  Rendered foods/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 23ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:08:57 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories/2" for 127.0.0.1 at 2013-07-19 18:09:00 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" WHERE "categories"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mFood Load (1.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:09:00 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/categories" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Processing by CategoriesController#index as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "foods" WHERE "foods"."category_id" = 2
+  Rendered categories/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Served asset /foods.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:03 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:09:04 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
+
+
+Started GET "/listallfoods" for 127.0.0.1 at 2013-07-19 18:09:07 +0100
+Processing by CategoriesController#listallfoods as HTML
+  [1m[36mCategory Load (0.0ms)[0m  [1mSELECT "categories".* FROM "categories" [0m
+  [1m[35mFood Load (0.0ms)[0m  SELECT "foods".* FROM "foods" WHERE "foods"."category_id" = 2 ORDER BY gi
+  Rendered categories/listallfoods.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-07-19 18:09:07 +0100
+Served asset /application.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-07-19 18:09:07 +0100
+Served asset /scaffolds.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:07 +0100
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.css?body=1" for 127.0.0.1 at 2013-07-19 18:09:07 +0100
+Served asset /categories.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.css?body=1" for 127.0.0.1 at 2013-07-19 18:09:07 +0100
+Served asset /foods.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:08 +0100
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/categories.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:08 +0100
+Served asset /categories.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/foods.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:08 +0100
+Served asset /foods.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-07-19 18:09:08 +0100
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/DigiserveLogo5.png" for 127.0.0.1 at 2013-07-19 18:09:08 +0100
+Served asset /DigiserveLogo5.png - 304 Not Modified (0ms)
